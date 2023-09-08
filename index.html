@@ -1,0 +1,352 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
+  <script>
+  myData = {
+    "videoproject": {
+      title: "Title of a Project with video",
+      content: ["<div class='bigdisplay-textblock'>",
+                    "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                    "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+                "</div>",
+                "<div class='bigdisplay-videotable verti-margin'>",
+                    "<div class='bigdisplay-flexcell videoembed'>",
+                        "<iframe width='498' height='280' src='https://www.youtube.com/embed/Ex0f-HZVIKQ' frameborder='0' allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    "</div>",
+                    "<div class='bigdisplay-flexcell bigdisplay-textblock'>",
+                        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                        "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+                    "</div>",
+                "</div>"]
+    },
+    "bigvideoproject": {
+      title: "Title of a Project with a big video",
+      content: ["<div class='bigdisplay-bigvideo'>",
+                    "<iframe src='https://www.youtube.com/embed/Ex0f-HZVIKQ' allowfullscreen></iframe>",
+                "</div>",
+                "<div class='bigdisplay-textblock'>",
+                    "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+                "</div>"]
+    },
+    "videoonly": {
+      title: "Video Only",
+      content: ["<div class='bigdisplay-bigvideo'>",
+                    "<iframe src='https://www.youtube.com/embed/Ex0f-HZVIKQ' allowfullscreen style='height: 550px'></iframe>",
+                "</div>"]
+    },
+    "simpledata": {
+      title: "Some simple data",
+      content: ["<div class='bigdisplay-textblock'>",
+                    "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+                "</div>",
+                "<h2>Some list title</h2><ul>",
+                    "<li>one</li>",
+                    "<li>two</li>",
+                    "<li>three</li>",
+                    "<li>four</li>",
+                    "<li>one</li>",
+                    "<li>two</li>",
+                    "<li>three</li>",
+                    "<li>four</li>",
+                "</ul>"]
+    },
+    "split": {
+      title: "Split",
+      content: ["<div style='display: flex; '>",
+                    "<div><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p></div>",
+                    "<div style='background-image: url(8.jpg); background-size: cover; width: 30%'></div>",
+                "</div>"]
+    },
+    "longcontent": {
+      title: "Title of a Project with a big video",
+      content: [
+                "<div class='bigdisplay-textblock'>",
+                    "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+                "</div>",
+                "<div class='bigdisplay-bigvideo'>",
+                    "<iframe src='https://www.youtube.com/embed/Ex0f-HZVIKQ' allowfullscreen></iframe>",
+                "</div>",
+                "<div class='bigdisplay-textblock'>",
+                    "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+                "</div>",
+                "<div class='bigdisplay-textblock'>",
+                    "<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. ",
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>",
+                "</div>"]
+    }
+  }
+  </script>
+
+  <style>
+    *{
+      font-family: sans-serif;
+    }
+
+    body {
+      background: #000;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .container
+    {
+      margin: auto;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .gridrow
+    {
+      display: flex;
+    }
+
+    .tile
+    {
+      margin: 0;
+      padding: 0;
+      width: calc(100vw / 8 - 6px);
+      height: calc(100vh / 6 - 6px);
+      background-color: rgb(242, 242, 242);
+      text-align: center;
+      background-size: cover;
+      border: 3px solid black;
+      transition: all 200ms;
+      opacity: 0.8;
+      z-index: 1;
+      background-repeat: no-repeat;
+
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+    }
+
+    .tile:hover {
+      box-shadow: 0 0 1px 1px rgb(252, 128, 33) inset;
+      border-color: rgb(252, 128, 33);
+      opacity: 1.0;
+      position: relative;
+    }
+
+    .tile-label
+    {
+      background-color: rgba(0, 0, 0, 0.65);
+      color: #EEE;
+      text-align: center;
+      padding: 2px 0;
+      font-size: 14px;
+
+      display: block;
+    }
+
+    .bigdisplay-backg
+    {
+      background-color: rgba(0, 0, 0, 0.4);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 10;
+      display: none;
+    }
+
+    .bigdisplay
+    {
+      background-color: rgb(242, 242, 242);
+      background-color: rgb(12, 44, 92);
+      position: absolute;
+      left: 7vw;
+      top: 5vh;
+      height: 90vh;
+      width: 86vw;
+      box-shadow: none;
+      border: 1px solid black;
+      z-index: 20;
+      display: none;
+      color: #111;
+      color: rgb(228, 228, 228);
+      box-shadow: 0 0 6px 8px rgb(38, 124, 190);
+      overflow-y: auto;
+    }
+
+    .bigdisplay-bigvideo
+    {
+      display: block;
+      background-color: black;
+      text-align: center;
+    }
+
+    .bigdisplay-bigvideo iframe
+    {
+      margin: auto;
+      width: 96%;
+      height: 400px;
+    }
+
+    .bigdisplay-bannerimage
+    {
+      display: block;
+      width: 35%;
+      width: 100%;
+      height: 20%;
+      background-size: cover;
+      background-position: center center;
+      background-image: url(13.jpg);
+      border-bottom: 2px solid rgb(92, 92, 92);
+    }
+
+    .bigdisplay-content
+    {
+      display: block;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .bigdisplay-textblock
+    {
+      background-color: rgb(228, 228, 228);
+      padding: 2% 4%;
+      text-align: left;
+    }
+
+    .bigdisplay-content-title
+    {
+      font-size: 46px;
+      padding: 1% 0;
+      background-color: #081533;
+      color: #DEE0CC;
+      text-shadow: 3px 3px 2px #000000;
+    }
+
+    .bigdisplay-flexcell
+    {
+      /* vertical-align: middle; */
+      text-align: left;
+    }
+
+    .bigdisplay-videotable
+    {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .verti-margin
+    {
+      margin: 1% 0;
+    }
+
+  </style>
+</head>
+
+<body>
+
+    <div class="container">
+      <div class='gridrow'>
+          <div class="tile" style='background-image: url(1.jpg)' data-project='bigvideoproject'><div class='tile-label'>Big Video</div></div>
+          <div class="tile" style='background-image: url(2.jpg)' data-project='longcontent'><div class='tile-label'>Big Video</div></div>
+          <div class="tile" style='background-image: url(3.jpg)' data-project='videoonly'><div class='tile-label'>Video Only</div></div>
+          <div class="tile" style='background-image: url(4.jpg)' data-project='simpledata'><div class='tile-label'>Simple Data</div></div>
+          <div class="tile" style='background-image: url(5.jpg)' data-project='split'><div class='tile-label'>Split Content</div></div>
+          <div class="tile" style='background-image: url(6.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(7.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(8.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+      </div>
+      <div class='gridrow'>
+          <div class="tile" style='background-image: url(9.jpg)'  data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(10.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(11.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(12.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(13.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(14.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(15.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(16.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+      </div>
+      <div class='gridrow'>
+        <div class="tile" style='background-image: url(1.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(2.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(3.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(4.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(5.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(6.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(7.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(8.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+      </div>
+      <div class='gridrow'>
+          <div class="tile" style='background-image: url(9.jpg)'  data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(10.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(11.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(12.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(13.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(14.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(15.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(16.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+      </div>
+      <div class='gridrow'>
+        <div class="tile" style='background-image: url(1.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(2.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(3.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(4.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(5.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(6.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(7.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+        <div class="tile" style='background-image: url(8.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+      </div>
+      <div class='gridrow'>
+          <div class="tile" style='background-image: url(9.jpg)'  data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(10.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(11.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(12.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(13.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(14.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(15.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+          <div class="tile" style='background-image: url(16.jpg)' data-project='videoproject'><div class='tile-label'>Content Video</div></div>
+      </div>
+    </div>
+
+    <div class='bigdisplay-backg'>
+      <div class='bigdisplay'>
+        <div class='bigdisplay-bannerimage'></div>
+        <div class='bigdisplay-content'>
+          
+        </div>
+      </div>
+    </div>
+    
+
+    <script>
+      $(".tile").click(function(){
+        let imageStr = $(this).css("background-image");
+        $(".bigdisplay-backg").fadeIn( 200 );
+        $( ".bigdisplay" ).fadeIn( 200 );
+        $(".bigdisplay-bannerimage").css("background-image", imageStr);
+
+        let pName = $(this).data("project");
+        let _title = myData[pName].title;
+        let _content = myData[pName].content.join('');
+        let _htmlStr = "<div class='bigdisplay-content-title'>" + _title + "</div><div>" + _content + "</div>";
+
+        $(".bigdisplay-content").html(_htmlStr);
+
+      });
+
+      $(".bigdisplay-backg").click(function(event) {
+        if (event.target !== this) return;
+        $(".bigdisplay-backg").fadeOut( 40 );
+        $(".bigdisplay").fadeOut( 40 );
+      });
+    </script>
+
+</body>
+</html>
